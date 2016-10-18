@@ -19,39 +19,14 @@ library(haven)
 library(apaTables)
 library(dplyr)
 
-#Load data 
-analytic_data <- read_csv("analytic_data.csv")
-
 ```
 
-# Relations among variables for women
+# Relations among variables
 
 Below are the correlations among the variables for all participants.
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-```
-
-\pagebreak
-
-# Distributions
-## Distributions of negative affect scores
-
-Below we can see the distribution of negative affect scores is skewed.
-
-```{r,echo=FALSE,message=FALSE, warning=FALSE}
-
-```
-
-\pagebreak
-
-## Neuroticism Distribution
-
-Below we can see the distribution of neuroticism scores is relatively normal.
-
-```{r,echo=FALSE,message=FALSE, warning=FALSE}
 #Load Data
 bfi_data <- psych::bfi
 
@@ -92,6 +67,15 @@ save(analytic_data,file="analytic_data.csv")
 analytic_data_nogender <- select(analytic_data, -gender)
 apa.cor.table(analytic_data_nogender, filename="Table1.doc", table.number=1)
 
+```
+
+## Relations among variables of men over 40
+
+Below are the correlations among variables of men over 40 years of age.
+
+```{r,echo=FALSE,message=FALSE, warning=FALSE}
+
+
 analytic_data_men40 <- filter(analytic_data, gender=="Males") %>% filter(age>40)
 analytic_data_men40 <- select(analytic_data_men40, -gender)
 print(apa.cor.table(analytic_data_men40, filename="Table2.doc", table.number=2))
@@ -100,9 +84,9 @@ print(apa.cor.table(analytic_data_men40, filename="Table2.doc", table.number=2))
 \pagebreak
 
 #Relations among variables
-##Scatter plot for Negative Affect and Neuroticism
+##Scatter plot for Agreeableness and Extraversion
 
-Below you can see the correlation between negative affect and neuroticism with a regression line.
+Below you can see the correlation between Agreeableness and Extraversion with a regression line. There is a positive correlation between the agreeableness and extraversion, r =.46.1, 95% CI [43.2, 49.0], p < .01. 
 
 ```{r,echo=FALSE,message=FALSE, warning=FALSE}
 my.plot <- qplot(agreeableness, extraversion, data=analytic_data_men40)
