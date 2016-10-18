@@ -1,14 +1,8 @@
 ---
-title: 'Quiz'
+title: "Week 4 Quiz"
 author: "Parco Sin"
-output:
-  pdf_document:
-    number_sections: yes
-    toc_depth: 3
-  html_document:
-    toc_depth: '3'
-  word_document:
-    toc_depth: '3'
+date: "October 18, 2016"
+output: pdf_document
 ---
 
 ```{r,echo=FALSE,message=FALSE, warning=FALSE}
